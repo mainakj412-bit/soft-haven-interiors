@@ -1,0 +1,12 @@
+# Photo originals - kept locally, far too heavy for the repo
+images/_raw/
+images/_materials_raw/
+
+# Generated artifact build (every photo inlined as base64, ~2.4 MB)
+_page.html
+
+# Packaged copy of docs/, only needed for drag-and-drop hosting
+soft-haven-site.zip
+
+# Superseded output folder name
+_site/
