@@ -1,390 +1,258 @@
 <title>Soft Haven Interiors — Custom Curtains &amp; Fabric Styling, Nakuru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
      SOFT HAVEN INTERIORS
      Palette taken from the brand logo: forest green, olive-gold,
      cream. Light theme = cream ground. Dark theme = the same brand
      shifted onto a deep forest ground (not an inversion).
+
+     Layout rule for the whole page: no boxes, no shadows. Sections
+     are separated by space and a hairline, and the photographs are
+     the only thing with weight.
      ============================================================ */
   :root{
-    --ground:#FAF5EC;
-    --ground-2:#F2E9D9;
+    --ground:#FAF6EE;
+    --ground-2:#F3ECDF;
     --surface:#FFFFFF;
-    --ink:#26231F;
-    --ink-soft:#5D564C;
-    --line:#E3D8C4;
+    --ink:#22201C;
+    --ink-soft:#655E53;
+    --line:#E2D8C6;
     --brand:#2E4739;
-    --brand-deep:#1E2F25;
+    --brand-deep:#1B2B22;
     --brand-mid:#4A6B55;
     --sage:#8AA582;
-    --gold:#B4801F;
+    --gold:#A87718;
     --gold-lift:#E0B45F;
     --on-dark:#F3EBDC;
-    --on-dark-soft:rgba(243,235,220,.72);
+    --on-dark-soft:rgba(243,235,220,.7);
     --wa:#25D366;
-    --wa-ink:#08301A;
-    --shadow:0 10px 30px rgba(30,47,37,.10);
-    --radius:14px;
     --wrap:1120px;
+    --serif:"Fraunces",Georgia,"Iowan Old Style","Times New Roman",serif;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --ground:#16221B;
-      --ground-2:#1E2F25;
-      --surface:#243A2D;
-      --ink:#EDE4D3;
-      --ink-soft:#B3BFB2;
-      --line:#31493A;
-      --brand:#A8C49C;
-      --brand-deep:#101A14;
-      --brand-mid:#7FA189;
-      --sage:#8AA582;
-      --gold:#E0B45F;
-      --gold-lift:#F0D094;
-      --on-dark:#F3EBDC;
-      --on-dark-soft:rgba(243,235,220,.72);
-      --shadow:0 10px 30px rgba(0,0,0,.4);
+      --ground:#141F19; --ground-2:#1B2B22; --surface:#22352A;
+      --ink:#EDE4D3; --ink-soft:#B0BCAF; --line:#30463A;
+      --brand:#A8C49C; --brand-deep:#0F1813; --brand-mid:#7FA189;
+      --gold:#E0B45F; --gold-lift:#F0D094;
     }
   }
   :root[data-theme="dark"]{
-    --ground:#16221B; --ground-2:#1E2F25; --surface:#243A2D;
-    --ink:#EDE4D3; --ink-soft:#B3BFB2; --line:#31493A;
-    --brand:#A8C49C; --brand-deep:#101A14; --brand-mid:#7FA189;
+    --ground:#141F19; --ground-2:#1B2B22; --surface:#22352A;
+    --ink:#EDE4D3; --ink-soft:#B0BCAF; --line:#30463A;
+    --brand:#A8C49C; --brand-deep:#0F1813; --brand-mid:#7FA189;
     --gold:#E0B45F; --gold-lift:#F0D094;
-    --shadow:0 10px 30px rgba(0,0,0,.4);
   }
   :root[data-theme="light"]{
-    --ground:#FAF5EC; --ground-2:#F2E9D9; --surface:#FFFFFF;
-    --ink:#26231F; --ink-soft:#5D564C; --line:#E3D8C4;
-    --brand:#2E4739; --brand-deep:#1E2F25; --brand-mid:#4A6B55;
-    --gold:#B4801F; --gold-lift:#E0B45F;
-    --shadow:0 10px 30px rgba(30,47,37,.10);
+    --ground:#FAF6EE; --ground-2:#F3ECDF; --surface:#FFFFFF;
+    --ink:#22201C; --ink-soft:#655E53; --line:#E2D8C6;
+    --brand:#2E4739; --brand-deep:#1B2B22; --brand-mid:#4A6B55;
+    --gold:#A87718; --gold-lift:#E0B45F;
   }
 
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
   body{
     margin:0;background:var(--ground);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    line-height:1.65;-webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  h1,h2,h3,.wordmark,.price-tag,.step::before,.quote{
-    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
-  }
-  h1,h2,h3{font-weight:600;line-height:1.18;letter-spacing:-.012em;text-wrap:balance;margin:0}
-  h2{font-size:clamp(1.55rem,4.2vw,2.25rem);margin-bottom:.55rem}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.02em;
+           text-wrap:balance;margin:0}
+  h2{font-size:clamp(1.9rem,4.6vw,2.9rem)}
   p{margin:0}
   a{color:var(--brand)}
   img{max-width:100%;display:block}
-  :focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:4px}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
 
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px;width:100%}
-  section{padding:clamp(52px,8vw,92px) 0}
-  .stack{display:flex;flex-direction:column;gap:1rem}
-  .eyebrow{
-    text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:700;
-    color:var(--gold);margin:0
-  }
-  .lede{font-size:1.03rem;color:var(--ink-soft);max-width:62ch}
-  .center{text-align:center}
-  .center .lede{margin-left:auto;margin-right:auto}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px;width:100%}
+  section{padding:clamp(64px,9vw,120px) 0}
+  .eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;font-weight:600;
+           color:var(--gold);margin:0 0 1rem}
+  .lede{color:var(--ink-soft);max-width:46ch}
+  .rule{border-top:1px solid var(--line)}
+
+  /* section heading: title left, one supporting line right */
+  .head{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem 3rem;align-items:end;
+        margin-bottom:clamp(2rem,4vw,3.2rem)}
+  @media(max-width:760px){.head{grid-template-columns:1fr}}
 
   /* ---------- buttons ---------- */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-    padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;
-    font-weight:600;font-size:.95rem;border:1.5px solid transparent;
-    transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;
+    padding:.9rem 1.5rem;border-radius:999px;text-decoration:none;cursor:pointer;
+    font:600 .93rem/1 inherit;font-family:inherit;border:1px solid transparent;
+    transition:background .18s ease,color .18s ease,border-color .18s ease;
   }
-  .btn:hover{transform:translateY(-2px)}
-  .btn-wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 6px 18px rgba(37,211,102,.32)}
-  .btn-ghost{border-color:var(--brand);color:var(--brand)}
-  .btn-ghost:hover{background:var(--brand);color:var(--ground)}
-  .btn-solid{background:var(--brand);color:var(--ground);cursor:pointer;font-family:inherit}
-  .btn-solid:hover{background:var(--brand-deep);color:var(--on-dark)}
   .btn svg{width:17px;height:17px;flex:none}
+  .btn-wa,.btn-solid{background:var(--brand);color:var(--ground)}
+  .btn-wa:hover,.btn-solid:hover{background:var(--brand-mid)}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .link{font-weight:600;font-size:.93rem;color:var(--ink);text-decoration:none;
+        border-bottom:1px solid var(--gold);padding-bottom:.15rem}
+  .link:hover{color:var(--gold)}
 
   /* ---------- nav ---------- */
-  .site-head{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb,var(--ground) 92%,transparent);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
-  }
+  .site-head{position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--ground) 90%,transparent);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-       padding:.65rem 20px;max-width:var(--wrap);margin:0 auto}
+       padding:.7rem 22px;max-width:var(--wrap);margin:0 auto}
   .brand-lock{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:inherit}
-  .mark{width:44px;height:44px;border-radius:50%;flex:none;background:var(--ground-2);
-        border:1.5px solid var(--brand);overflow:hidden}
-  .mark img{width:100%;height:100%;object-fit:cover;display:block}
-  .wordmark{font-size:1.1rem;line-height:1.05;color:var(--ink);font-weight:600}
-  .wordmark small{display:block;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;
-                  color:var(--sage);font-weight:400;font-family:inherit}
-  .nav-links{display:flex;align-items:center;gap:1.5rem}
-  .nav-links a:not(.btn){text-decoration:none;color:var(--ink-soft);font-size:.9rem;font-weight:500}
-  .nav-links a:not(.btn):hover{color:var(--brand)}
-  .nav .btn{padding:.58rem 1.05rem;font-size:.87rem}
-  @media(max-width:880px){ .nav-links a:not(.btn){display:none} }
+  .mark{width:40px;height:40px;border-radius:50%;flex:none;overflow:hidden;background:var(--ground-2)}
+  .mark img{width:100%;height:100%;object-fit:cover}
+  .wordmark{font-family:var(--serif);font-size:1.12rem;line-height:1.05;color:var(--ink)}
+  .wordmark small{display:block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+                  font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft)}
+  .nav-links{display:flex;align-items:center;gap:1.9rem}
+  .nav-links a:not(.btn){text-decoration:none;color:var(--ink-soft);font-size:.88rem}
+  .nav-links a:not(.btn):hover{color:var(--ink)}
+  .nav .btn{padding:.62rem 1.1rem;font-size:.85rem}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
 
   /* ---------- hero ---------- */
-  .hero{
-    background:
-      radial-gradient(900px 400px at 80% 5%,color-mix(in srgb,var(--gold) 16%,transparent),transparent 62%),
-      linear-gradient(170deg,var(--ground) 0%,var(--ground-2) 100%);
-    padding:clamp(46px,7vw,84px) 0 clamp(52px,8vw,90px);
-  }
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:center}
-  .hero h1{font-size:clamp(2.15rem,7vw,3.5rem);color:var(--ink)}
+  .hero{padding:clamp(40px,7vw,96px) 0 clamp(56px,8vw,104px)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,80px);align-items:center}
+  .hero h1{font-size:clamp(2.7rem,8.4vw,5.1rem);margin-bottom:1.5rem}
   .hero h1 em{font-style:italic;color:var(--brand-mid)}
-  .hero .lede{font-size:1.08rem}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:.7rem}
-  .hero-note{font-size:.86rem;color:var(--ink-soft);display:flex;align-items:center;gap:.5rem}
-  .hero-note svg{width:15px;height:15px;flex:none;color:var(--gold)}
-  .hero-art{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .hero-art .ph:first-child{grid-row:span 2;aspect-ratio:3/4.5}
-  .hero-art .ph{aspect-ratio:4/3.2}
+  .hero .lede{font-size:1.1rem;margin-bottom:2rem}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem}
+  .facts{display:flex;flex-wrap:wrap;gap:1.2rem 2.6rem;margin-top:clamp(2.4rem,5vw,3.6rem);
+         padding-top:1.5rem;border-top:1px solid var(--line)}
+  .facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.1;
+           color:var(--ink);font-variant-numeric:tabular-nums}
+  .facts span{font-size:.8rem;color:var(--ink-soft)}
+  /* the hero photo sits in an arch — a window, not a rectangle */
+  .hero-art{max-width:420px;width:100%;justify-self:end}
+  .hero-art .ph{aspect-ratio:3/4.1;border-radius:999px 999px 6px 6px}
   @media(max-width:820px){
     .hero-grid{grid-template-columns:1fr}
-    .hero-art .ph:first-child{grid-row:auto;aspect-ratio:4/3.2}
+    .hero-art{justify-self:center;max-width:340px;order:-1}
   }
 
   /* ---------- photo panels ----------
-     Real photos drop into images/ and replace these automatically.
-     Until then a woven fabric-fold panel stands in. */
-  .ph{
-    position:relative;overflow:hidden;border-radius:var(--radius);
-    background:repeating-linear-gradient(95deg,
-      var(--brand-mid) 0 14px, var(--brand) 14px 26px, var(--brand-deep) 26px 40px);
-    box-shadow:var(--shadow);
-  }
-  .ph::after{
-    content:attr(data-label);position:absolute;inset:auto 0 0 0;padding:.65rem .85rem;
-    font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,245,236,.88);
-    background:linear-gradient(to top,rgba(16,26,20,.8),transparent);
-  }
+     If an image file is missing, a woven fabric-fold panel shows instead. */
+  .ph{position:relative;overflow:hidden;border-radius:6px;
+      background:repeating-linear-gradient(95deg,
+        var(--brand-mid) 0 14px, var(--brand) 14px 26px, var(--brand-deep) 26px 40px)}
+  .ph::after{content:attr(data-label);position:absolute;inset:auto 0 0 0;padding:.65rem .85rem;
+      font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,245,236,.9)}
   .ph.alt{background:repeating-linear-gradient(95deg,#B9A88E 0 14px,#D8C9B0 14px 26px,#A08D74 26px 40px)}
-  .ph.alt::after{color:#332B21;background:linear-gradient(to top,rgba(255,255,255,.75),transparent)}
+  .ph.alt::after{color:#332B21}
   .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-  /* ---------- dark strip ---------- */
-  .strip{background:var(--brand-deep);color:var(--on-dark)}
-  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
-               padding-top:2.2rem;padding-bottom:2.2rem}
-  .strip b{display:block;font-family:Georgia,serif;font-size:1rem;color:var(--gold-lift);
-           margin-bottom:.15rem;font-weight:600}
-  .strip span{font-size:.85rem;color:var(--on-dark-soft)}
-  @media(max-width:760px){.strip .wrap{grid-template-columns:1fr 1fr;gap:1.3rem}}
-
-  /* ---------- cards ---------- */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.4rem}
-  @media(max-width:880px){.grid-3{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.grid-3{grid-template-columns:1fr}}
-  .card{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;
-    transition:transform .18s ease,box-shadow .18s ease;
-  }
-  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-  .card h3{font-size:1.08rem;color:var(--ink);margin-top:.2rem}
-  .card p{font-size:.92rem;color:var(--ink-soft)}
-  .icon{width:42px;height:42px;border-radius:12px;background:var(--ground-2);
-        display:grid;place-items:center;color:var(--brand)}
-  .icon svg{width:21px;height:21px}
-
-  /* ---------- about ---------- */
-  .about{background:var(--ground-2)}
-  .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,54px);align-items:center}
-  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
-  .quote{
-    border-left:3px solid var(--gold);padding-left:1.15rem;
-    font-style:italic;font-size:1.06rem;color:var(--brand);
-  }
-  .quote cite{display:block;font-style:normal;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-              font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:.55rem}
-
-  /* ---------- colour swatches ---------- */
-  .swatches{display:flex;flex-wrap:wrap;gap:14px;margin-top:2rem;justify-content:center}
-  .sw{text-align:center;font-size:.77rem;color:var(--ink-soft)}
-  .sw i{display:block;width:62px;height:62px;border-radius:50%;margin:0 auto .45rem;
-        box-shadow:inset 0 -6px 14px rgba(0,0,0,.2),0 4px 12px rgba(0,0,0,.14)}
-
   /* ---------- gallery ---------- */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:2.4rem}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .gallery .ph{aspect-ratio:1}
   .gallery .ph.wide{grid-column:span 2;aspect-ratio:2/1}
-  @media(max-width:880px){.gallery{grid-template-columns:repeat(2,1fr)}}
+  .gallery .ph img{transition:transform .6s ease}
+  .gallery .ph:hover img{transform:scale(1.03)}
+  @media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);gap:8px}}
+  .sub{display:flex;align-items:baseline;gap:1rem;margin:clamp(2.4rem,5vw,3.6rem) 0 1.1rem}
+  .sub h3{font-size:1.35rem}
+  .sub span{font-size:.85rem;color:var(--ink-soft)}
 
-  /* ---------- pricing ---------- */
-  .price{background:var(--brand-deep);color:var(--on-dark);text-align:center}
-  .price .eyebrow{color:var(--gold-lift)}
-  .price h2{color:#fff}
-  .price .lede{color:var(--on-dark-soft)}
-  .price-card{
-    max-width:430px;margin:2.3rem auto 0;background:rgba(250,245,236,.06);
-    border:1px solid rgba(224,180,95,.32);border-radius:var(--radius);padding:2.1rem 1.7rem;
-    display:flex;flex-direction:column;gap:.15rem;
-  }
-  .price-tag{font-size:clamp(2.4rem,9vw,3rem);color:var(--gold-lift);line-height:1;margin:.35rem 0;
-             font-variant-numeric:tabular-nums}
-  .price-card ul{list-style:none;padding:0;margin:1.2rem 0;text-align:left;font-size:.93rem}
-  .price-card li{padding:.45rem 0;border-bottom:1px dashed rgba(224,180,95,.22);display:flex;gap:.6rem}
-  .price-card li:last-child{border-bottom:0}
-  .price-card li::before{content:"✓";color:var(--gold-lift);font-weight:700}
-  .fineprint{font-size:.84rem;color:var(--on-dark-soft);margin-top:1.5rem;max-width:56ch;
-             margin-left:auto;margin-right:auto}
+  /* ---------- pull quote ---------- */
+  .voice{background:var(--ground-2);text-align:center}
+  .voice blockquote{margin:0 auto;max-width:24ch;font-family:var(--serif);font-style:italic;
+      font-size:clamp(1.5rem,3.8vw,2.3rem);line-height:1.25;letter-spacing:-.01em;color:var(--brand)}
+  .voice cite{display:block;margin-top:1.4rem;font-style:normal;font-size:.72rem;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--ink-soft)}
 
-  /* ---------- steps (a real sequence, so numbered) ---------- */
-  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:2.5rem}
-  @media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.steps{grid-template-columns:1fr}}
-  .step{counter-increment:s;display:flex;flex-direction:column;gap:.3rem}
-  .step::before{content:counter(s,decimal-leading-zero);font-size:2.2rem;color:var(--gold-lift);
-                line-height:1;font-variant-numeric:tabular-nums}
-  .step h3{font-size:1.02rem;color:var(--ink)}
-  .step p{font-size:.9rem;color:var(--ink-soft)}
+  /* ---------- fabrics ---------- */
+  .fab-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:2rem}
+  .fab-row .ph{aspect-ratio:3/4}
+  @media(max-width:760px){.fab-row{grid-template-columns:repeat(3,1fr);gap:8px}}
+  .fab-open{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.4rem}
+  .fab-hint{font-size:.88rem;color:var(--ink-soft)}
 
-  /* ---------- contact ---------- */
-  .contact{background:var(--ground-2)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,46px)}
-  @media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
-  .contact-list{list-style:none;padding:0;margin:1.4rem 0 0}
-  .contact-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.85rem 0;border-bottom:1px solid var(--line)}
-  .contact-list li:last-child{border-bottom:0}
-  .contact-list svg{width:20px;height:20px;color:var(--brand);flex:none;margin-top:.25rem}
-  .contact-list b{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
-                  color:var(--ink-soft);font-weight:700}
-  .contact-list a,.contact-list .val{font-size:1.02rem;color:var(--ink);text-decoration:none;font-weight:500}
-  .contact-list a:hover{text-decoration:underline}
-  .cta-box{background:var(--brand);color:var(--on-dark);border-radius:var(--radius);
-           padding:2rem;display:flex;flex-direction:column;gap:.7rem;justify-content:center}
-  :root[data-theme="dark"] .cta-box,
-  .cta-box{color:var(--on-dark)}
-  @media (prefers-color-scheme: dark){ .cta-box{background:var(--brand-deep);border:1px solid var(--line)} }
-  :root[data-theme="dark"] .cta-box{background:var(--brand-deep);border:1px solid var(--line)}
-  :root[data-theme="light"] .cta-box{background:var(--brand);border:0}
-  .cta-box h3{font-size:1.42rem;color:#fff}
-  .cta-box p{color:var(--on-dark-soft);font-size:.94rem}
-  .cta-box .btn-ghost{border-color:var(--gold-lift);color:var(--gold-lift)}
-  .cta-box .btn-ghost:hover{background:var(--gold-lift);color:var(--brand-deep)}
-
-  /* ---------- footer ---------- */
-  .site-foot{background:var(--brand-deep);color:var(--on-dark-soft);padding:2.6rem 0 2.3rem;font-size:.85rem}
-  .foot-logo{
-    width:116px;height:116px;border-radius:50%;display:block;margin:0 auto 1.7rem;
-    box-shadow:0 6px 22px rgba(0,0,0,.3);
-  }
-  .foot{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center;
-        border-top:1px solid rgba(243,235,220,.14);padding-top:1.4rem}
-  @media(max-width:600px){ .foot{justify-content:center;text-align:center} }
-  .site-foot a{color:var(--gold-lift);text-decoration:none}
-
-  /* ---------- measure your window ---------- */
-  .measure{background:var(--ground-2)}
-  .measure-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,52px);align-items:start}
-  @media(max-width:860px){.measure-grid{grid-template-columns:1fr}}
-  .diagram{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem}
-  .diagram svg{width:100%;height:auto;display:block}
-  .calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem}
-  .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-  @media(max-width:420px){.calc-row{grid-template-columns:1fr}}
-  .field{display:flex;flex-direction:column;gap:.35rem}
-  .field label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink-soft)}
-  .field input,.field select{
-    padding:.7rem .8rem;border:1.5px solid var(--line);border-radius:10px;
-    background:var(--ground);color:var(--ink);font-size:1rem;font-family:inherit;
-    font-variant-numeric:tabular-nums;
-  }
+  /* ---------- pricing + measure ---------- */
+  .price{background:var(--ground-2)}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+  @media(max-width:860px){.price-grid{grid-template-columns:1fr}}
+  .price-tag{font-family:var(--serif);font-size:clamp(3rem,10vw,4.6rem);line-height:1;letter-spacing:-.03em;
+             color:var(--ink);font-variant-numeric:tabular-nums}
+  .price-what{margin:.7rem 0 1.4rem;color:var(--ink-soft)}
+  .ticks{list-style:none;padding:0;margin:0 0 1.4rem;border-top:1px solid var(--line)}
+  .ticks li{padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .fineprint{font-size:.85rem;color:var(--ink-soft);max-width:44ch}
+  .diagram{margin-top:2.2rem}
+  .diagram svg{width:100%;max-width:400px;height:auto;display:block}
+  .diagram p{font-size:.88rem;color:var(--ink-soft);max-width:44ch;margin-top:.5rem}
+  .diagram p b{color:var(--ink)}
+  .calc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(1.3rem,3vw,2rem)}
+  .calc h3{font-size:1.45rem;margin-bottom:.3rem}
+  .calc > p{font-size:.9rem;color:var(--ink-soft);margin-bottom:1.3rem}
+  .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+  .field{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+  .field label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
+  .field input,.field select{width:100%;padding:.72rem .8rem;border:1px solid var(--line);border-radius:8px;
+      background:var(--ground);color:var(--ink);font-size:1rem;font-family:inherit;font-variant-numeric:tabular-nums}
   .field input:focus,.field select:focus{border-color:var(--brand);outline:none}
-  .calc-out{
-    background:var(--ground-2);border-radius:10px;padding:1rem 1.1rem;margin:.2rem 0 1.1rem;
-    font-size:.92rem;color:var(--ink-soft);
-  }
+  .calc-out{margin:.4rem 0 1.2rem;font-size:.92rem;color:var(--ink-soft)}
   .calc-out b{color:var(--ink);font-variant-numeric:tabular-nums}
-  .calc-out .line{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0}
-  .calc-note{font-size:.84rem;color:var(--ink-soft);margin-top:.9rem}
-  .steps-list{list-style:none;padding:0;margin:1.4rem 0 0;counter-reset:m}
-  .steps-list li{
-    counter-increment:m;display:flex;gap:.9rem;padding:.7rem 0;
-    border-bottom:1px dashed var(--line);font-size:.95rem;
-  }
-  .steps-list li:last-child{border-bottom:0}
-  .steps-list li::before{
-    content:counter(m);flex:none;width:26px;height:26px;border-radius:50%;
-    background:var(--brand);color:var(--ground);display:grid;place-items:center;
-    font-size:.8rem;font-weight:700;
-  }
-  :root[data-theme="dark"] .steps-list li::before{color:var(--brand-deep)}
-  @media (prefers-color-scheme: dark){ .steps-list li::before{color:var(--brand-deep)} }
-  :root[data-theme="light"] .steps-list li::before{color:var(--ground)}
+  .calc-out .line{display:flex;justify-content:space-between;gap:1rem;padding:.32rem 0}
+  .calc .btn{width:100%}
 
-  /* ---------- promise ---------- */
-  .promise{background:var(--brand-deep);color:var(--on-dark)}
-  .promise h2{color:#fff}
-  .promise .eyebrow{color:var(--gold-lift)}
-  .promise .lede{color:var(--on-dark-soft)}
-  .promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.4rem}
-  @media(max-width:820px){.promise-grid{grid-template-columns:1fr}}
-  .promise-card{
-    border:1px solid rgba(224,180,95,.28);border-radius:var(--radius);padding:1.6rem;
-    background:rgba(250,245,236,.05);display:flex;flex-direction:column;gap:.5rem;
-  }
-  .promise-card h3{font-size:1.1rem;color:var(--gold-lift)}
-  .promise-card p{font-size:.93rem;color:var(--on-dark-soft)}
-  .promise-card svg{width:26px;height:26px;color:var(--gold-lift)}
+  /* ---------- how it works + promise (dark band) ---------- */
+  .dark{background:var(--brand-deep);color:var(--on-dark)}
+  .dark h2{color:#fff;margin-bottom:2rem;font-size:clamp(1.7rem,3.6vw,2.3rem)}
+  .dark .eyebrow{color:var(--gold-lift)}
+  .dark-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,96px)}
+  @media(max-width:820px){.dark-grid{grid-template-columns:1fr}}
+  .rows{list-style:none;padding:0;margin:0;counter-reset:r;border-top:1px solid rgba(243,235,220,.16)}
+  .rows li{display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem;padding:1rem 0;
+           border-bottom:1px solid rgba(243,235,220,.16)}
+  .rows li::before{counter-increment:r;content:counter(r,decimal-leading-zero);font-family:var(--serif);
+           color:var(--gold-lift);font-variant-numeric:tabular-nums}
+  .rows.plain li::before{content:"—"}
+  .rows b{display:block;font-weight:600;color:#fff}
+  .rows span{font-size:.9rem;color:var(--on-dark-soft)}
 
-  /* ---------- testimonials ---------- */
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.4rem}
+  /* ---------- testimonials (hidden until real quotes exist) ---------- */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
   @media(max-width:820px){.quotes{grid-template-columns:1fr}}
-  .qcard{
-    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:1.5rem;display:flex;flex-direction:column;gap:.8rem;
-  }
-  .qcard .stars{color:var(--gold);letter-spacing:.15em;font-size:.9rem}
-  .qcard blockquote{margin:0;font-size:.97rem;color:var(--ink);font-style:italic}
-  .qcard cite{font-size:.83rem;color:var(--ink-soft);font-style:normal;font-weight:600}
+  .qcard{border-top:1px solid var(--line);padding-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+  .qcard .stars{color:var(--gold);letter-spacing:.15em;font-size:.85rem}
+  .qcard blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.4}
+  .qcard cite{font-size:.8rem;color:var(--ink-soft);font-style:normal}
 
   /* ---------- faq ---------- */
-  .faq-list{max-width:780px;margin:2.2rem auto 0}
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:start}
+  @media(max-width:820px){.faq-grid{grid-template-columns:1fr}}
+  .faq-list{border-top:1px solid var(--line)}
   .faq-item{border-bottom:1px solid var(--line)}
-  .faq-item summary{
-    cursor:pointer;padding:1.05rem 2.2rem 1.05rem 0;font-weight:600;font-size:1rem;
-    list-style:none;position:relative;color:var(--ink);
-  }
+  .faq-item summary{cursor:pointer;padding:1.1rem 2.2rem 1.1rem 0;font-weight:600;list-style:none;position:relative}
   .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item summary::after{
-    content:"+";position:absolute;right:.2rem;top:50%;transform:translateY(-50%);
-    font-size:1.4rem;color:var(--gold);font-weight:400;line-height:1;
-  }
+  .faq-item summary::after{content:"+";position:absolute;right:.2rem;top:50%;transform:translateY(-50%);
+      font-size:1.35rem;font-weight:300;color:var(--gold);line-height:1}
   .faq-item[open] summary::after{content:"−"}
-  .faq-item p{padding:0 0 1.15rem;color:var(--ink-soft);font-size:.95rem;max-width:68ch}
+  .faq-item p{padding:0 0 1.2rem;color:var(--ink-soft);font-size:.95rem;max-width:60ch}
 
-  /* ---------- socials ---------- */
-  .socials{display:flex;gap:.6rem;margin-top:1.2rem;flex-wrap:wrap}
-  .soc{
-    width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-    border:1.5px solid var(--line);color:var(--brand);background:var(--surface);
-    transition:background .15s ease,color .15s ease,border-color .15s ease;
-  }
-  .soc:hover{background:var(--brand);color:var(--ground);border-color:var(--brand)}
-  .soc svg{width:19px;height:19px}
-  .foot-soc{display:flex;gap:.55rem}
-  .foot-soc a{
-    width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-    border:1px solid rgba(243,235,220,.22);color:var(--gold-lift);
-  }
-  .foot-soc a:hover{background:var(--gold-lift);color:var(--brand-deep)}
-  .foot-soc svg{width:16px;height:16px}
+  /* ---------- closing call ---------- */
+  .contact{text-align:center;padding-bottom:clamp(56px,7vw,88px)}
+  .contact h2{font-size:clamp(2.2rem,6.4vw,4rem);margin-bottom:1.1rem}
+  .contact h2 em{font-style:italic;color:var(--brand-mid)}
+  .contact .lede{margin:0 auto 2rem}
+  .contact-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
+  .where{margin-top:2.2rem;font-size:.85rem;color:var(--ink-soft)}
+  .where a{color:var(--ink-soft)}
 
-  .skip{
-    position:absolute;left:-9999px;top:0;background:var(--brand);color:var(--ground);
-    padding:.7rem 1.1rem;border-radius:0 0 8px 0;z-index:200;
-  }
+  /* ---------- footer ---------- */
+  .site-foot{border-top:1px solid var(--line);padding:1.6rem 0;font-size:.82rem;color:var(--ink-soft)}
+  .foot{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;justify-content:space-between;align-items:center}
+  @media(max-width:600px){.foot{justify-content:center;text-align:center}}
+  .foot-soc{display:flex;gap:1.3rem}
+  .foot-soc a{color:var(--ink-soft);text-decoration:none}
+  .foot-soc a:hover{color:var(--ink)}
+
+  .skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:var(--ground);
+        padding:.7rem 1.1rem;border-radius:0 0 8px 0;z-index:200}
   .skip:focus{left:0}
-
-  /* ---------- fabric catalogue: trigger ---------- */
-  .fab-open{margin-top:2.2rem}
-  .fab-open .btn svg{width:19px;height:19px}
-  .fab-hint{font-size:.85rem;color:var(--ink-soft);margin-top:.8rem}
 
   /* ---------- fabric catalogue: modal ---------- */
   .modal[hidden]{display:none}
@@ -470,21 +338,15 @@
   .lb-x:hover{background:var(--brand);border-color:var(--brand)}
   body.is-locked{overflow:hidden}
 
+
   /* ---------- floating whatsapp ---------- */
-  .float{
-    position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;
-    background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);
-    animation:pulse 2.8s infinite;
-  }
-  .float svg{width:29px;height:29px;color:#fff}
-  @keyframes pulse{
-    0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.45)}
-    50%{box-shadow:0 8px 24px rgba(37,211,102,.45),0 0 0 13px rgba(37,211,102,0)}
-  }
+  .float{position:fixed;right:16px;bottom:16px;z-index:60;width:54px;height:54px;border-radius:50%;
+         background:var(--wa);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+  .float svg{width:28px;height:28px;color:#fff}
   @media(prefers-reduced-motion:reduce){
-    .float{animation:none}
-    .btn:hover,.card:hover{transform:none}
     html{scroll-behavior:auto}
+    .gallery .ph img{transition:none}
+    .gallery .ph:hover img{transform:none}
   }
 </style>
 
@@ -537,14 +399,13 @@
       <span class="wordmark">Soft Haven<small>Interiors</small></span>
     </a>
     <div class="nav-links">
+      <a href="#gallery">Work</a>
       <a href="#fabrics">Fabrics</a>
-      <a href="#gallery">Our work</a>
-      <a href="#measure">Measure up</a>
       <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="#faq">Questions</a>
       <a class="btn btn-wa" href="https://wa.me/254799282690?text=Hi%20Soft%20Haven%20Interiors%2C%20I%27d%20like%20a%20quote%20for%20curtains." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"></path><path d="M12 2A10 10 0 0 0 3.5 17.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>
-        WhatsApp
+        Get a quote
       </a>
     </div>
   </nav>
@@ -552,125 +413,34 @@
 
 <div id="top" class="hero">
   <div class="wrap hero-grid">
-    <div class="stack">
-      <p class="eyebrow">Nakuru, Kenya</p>
+    <div>
+      <p class="eyebrow">Custom curtains &middot; Nakuru, Kenya</p>
       <h1>Your Home,<br><em>Your Haven.</em></h1>
-      <p class="lede">Custom curtains, sheers and fabric styling for beautiful living spaces. Every set is tailored to your windows — quality fabric, excellent fall, clean finishing.</p>
+      <p class="lede">Curtains, sheers and soft furnishings, cut and sewn to your exact window. You measure, you choose the fabric, we do the rest.</p>
       <div class="hero-cta">
         <a class="btn btn-wa" href="https://wa.me/254799282690?text=Hi%20Soft%20Haven%20Interiors%2C%20I%27d%20like%20a%20quote%20for%20curtains." target="_blank" rel="noopener">Get a quote on WhatsApp</a>
-        <a class="btn btn-ghost" href="#gallery">See our work</a>
+        <a class="link" href="#gallery">See our work</a>
       </div>
-      <p class="hero-note">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"></path></svg>
-        Made to measure &middot; Standard set from KSh 4,000
-      </p>
+      <div class="facts">
+        <div><b>KSh 4,000</b><span>standard curtain + sheer set</span></div>
+        <div><b>33</b><span>fabrics in stock</span></div>
+        <div><b>2 min</b><span>to measure your window</span></div>
+      </div>
     </div>
     <div class="hero-art">
-      <div class="ph" data-label="Grey blackout &amp; sheer"><img src="images/hero-1.jpg" alt="Grey blackout curtains with soft sheers"></div>
-      <div class="ph alt" data-label="Fabric range"><img src="images/hero-2.jpg" alt="Range of curtain fabrics"></div>
-      <div class="ph" data-label="Living room styling"><img src="images/hero-3.jpg" alt="Styled living room with custom curtains"></div>
+      <div class="ph" data-label="Grey blackout &amp; sheer"><img src="images/hero-1.jpg" alt="Grey eyelet curtains drawn back over a white sheer"></div>
     </div>
   </div>
 </div>
 
-<div class="strip">
+<section id="gallery" class="rule">
   <div class="wrap">
-    <div><b>Made to measure</b><span>Tailored to fit your windows perfectly</span></div>
-    <div><b>Quality fabric</b><span>Thick material with excellent fall</span></div>
-    <div><b>Clean finishing</b><span>Neat stitching, modern eyelet design</span></div>
-    <div><b>Order on WhatsApp</b><span>Send your measurements, get a quote</span></div>
-  </div>
-</div>
-
-<section id="services">
-  <div class="wrap">
-    <div class="center stack">
-      <p class="eyebrow">What we make</p>
-      <h2>Fabric that changes how a room feels</h2>
-      <p class="lede">The right curtain adds warmth, privacy and instant style. We cut, sew and finish each set for your space — not off a shelf.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 4h18"></path><path d="M6 4v16c0-4 2-6 2-9s-2-4-2-7"></path><path d="M12 4v16c0-4 2-6 2-9s-2-4-2-7"></path><path d="M18 4v16"></path></svg></div>
-        <h3>Custom curtains</h3>
-        <p>Living room and bedroom sets tailored to your window size, in the colour and weight you want.</p>
+    <div class="head">
+      <div>
+        <p class="eyebrow">Our work</p>
+        <h2>Made for homes around Nakuru</h2>
       </div>
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 3h16v18H4z" opacity=".35"></path><path d="M8 3v18M12 3v18M16 3v18"></path></svg></div>
-        <h3>Sheers &amp; day curtains</h3>
-        <p>Soft, light sheers that keep the room bright while giving you privacy through the day.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"></path></svg></div>
-        <h3>Blackout curtains</h3>
-        <p>Heavy blackout fabric for proper darkness and quiet — ideal for bedrooms and street-facing rooms.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="6" r="2"></circle><circle cx="12" cy="6" r="2"></circle><circle cx="17" cy="6" r="2"></circle><path d="M5 9v12M19 9v12" stroke-linecap="round"></path></svg></div>
-        <h3>Modern eyelet styling</h3>
-        <p>Clean eyelet headings that hang in even folds and slide easily — the look most clients ask for.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 8c0-2 2-4 4-4h8c2 0 4 2 4 4v8c0 2-2 4-4 4H8c-2 0-4-2-4-4z"></path><path d="M8 8c2 2 6 2 8 0M8 16c2-2 6-2 8 0"></path></svg></div>
-        <h3>Throw pillows &amp; fabric décor</h3>
-        <p>Matching cushions and soft accents that tie the curtains, the sofa and the room together.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 7l2 12h14l2-12"></path><path d="M8 7V5a4 4 0 0 1 8 0v2"></path></svg></div>
-        <h3>Colour &amp; fabric advice</h3>
-        <p>Not sure what suits your space? Send a photo of the room and we'll help you pick shade and fabric.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="wrap about-grid">
-    <div class="ph" data-label="Soft Haven Interiors" style="aspect-ratio:4/4.4"><img src="images/about.jpg" alt="Soft Haven Interiors curtain work"></div>
-    <div class="stack">
-      <p class="eyebrow">About us</p>
-      <h2>Warm, stylish homes — one window at a time</h2>
-      <p>At Soft Haven Interiors we create warm, stylish homes through custom curtains and fabric décor. We are based in Nakuru and work with homeowners who want their space to feel finished, not furnished in a hurry.</p>
-      <p>Every order starts with your actual window measurements. You choose the colour and fabric, we tailor the set and finish it properly — so it hangs the way it should from the first day.</p>
-      <p class="quote">The right curtain colour can change the whole feel of a room — adding warmth, privacy and instant style.
-        <cite>Ruth Kiiru &middot; Soft Haven Interiors</cite>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="fabrics">
-  <div class="wrap center">
-    <div class="stack">
-      <p class="eyebrow">Any colour you love</p>
-      <h2>Blue, maroon, green, grey, beige</h2>
-      <p class="lede">Whatever colour speaks to you, we have it — a wide range of beautiful shades in quality fabric.</p>
-    </div>
-    <div class="swatches">
-      <div class="sw"><i style="background:#2C4A7C"></i>Blue</div>
-      <div class="sw"><i style="background:#6E2233"></i>Maroon</div>
-      <div class="sw"><i style="background:#2E4739"></i>Green</div>
-      <div class="sw"><i style="background:#6E7377"></i>Grey</div>
-      <div class="sw"><i style="background:#C9B79C"></i>Beige</div>
-      <div class="sw"><i style="background:#1D1D1F"></i>Black</div>
-      <div class="sw"><i style="background:#F3EBDC"></i>Cream</div>
-    </div>
-    <div class="fab-open">
-      <button class="btn btn-solid" id="fabOpen" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
-        Browse the fabric collection
-      </button>
-      <p class="fab-hint">33 materials in stock — note the code, send it to us, we do the rest.</p>
-    </div>
-  </div>
-</section>
-
-<section id="gallery" style="background:var(--ground-2)">
-  <div class="wrap">
-    <div class="center stack">
-      <p class="eyebrow">Our work</p>
-      <h2>Recent sets</h2>
-      <p class="lede">A few of the curtains and fabric styling we've delivered for homes around Nakuru.</p>
+      <p class="lede">Every set here was tailored to a client's own window, in the fabric they picked.</p>
     </div>
     <div class="gallery">
       <div class="ph" data-label="Black &amp; white geometric"><img src="images/work-1.jpg" alt="Black and white geometric curtains with a white sheer, fitted in a client's living room"></div>
@@ -681,178 +451,154 @@
       <div class="ph alt" data-label="Brown &amp; cream, second window"><img src="images/work-6.jpg" alt="The brown and cream set on a second window in the same home"></div>
     </div>
 
-    <div class="center stack" style="margin-top:4.5rem">
-      <p class="eyebrow">Beyond curtains</p>
-      <h2>Other things we make</h2>
-      <p class="lede">Throw pillows cut from the fabric you choose, and mosquito nets made to fit the bed. Same workshop, same finishing.</p>
+    <div class="sub">
+      <h3>Throw pillows &amp; mosquito nets</h3>
+      <span>Same workshop, same finishing.</span>
     </div>
     <div class="gallery">
-      <div class="ph wide" data-label="Crushed velvet, three-seater"><img src="images/pillows-1.jpg" alt="Five rust crushed-velvet throw pillows arranged along a grey three-seater sofa"></div>
-      <div class="ph alt" data-label="Crushed velvet, angled"><img src="images/pillows-2.jpg" alt="Rust crushed-velvet throw pillows set at an angle along a grey three-seater sofa"></div>
-      <div class="ph" data-label="Rust set, two-seater"><img src="images/pillows-3.jpg" alt="Three rust crushed-velvet throw pillows on a grey two-seater sofa"></div>
-      <div class="ph alt" data-label="Ivory damask, angled"><img src="images/pillows-4.jpg" alt="Three ivory damask throw pillows set at an angle on a grey two-seater sofa"></div>
-      <div class="ph" data-label="Mosquito net, ruffle trim"><img src="images/net-1.jpg" alt="White box mosquito net with a ruffled valance and tie-back openings, hung up to show the full drop"></div>
-      <div class="ph alt wide" data-label="Ivory damask, two-seater"><img src="images/pillows-5.jpg" alt="Ivory damask throw pillows arranged across a grey two-seater sofa"></div>
+      <div class="ph wide" data-label="Crushed velvet, three-seater"><img loading="lazy" src="images/pillows-1.jpg" alt="Five rust crushed-velvet throw pillows arranged along a grey three-seater sofa"></div>
+      <div class="ph alt" data-label="Crushed velvet, angled"><img loading="lazy" src="images/pillows-2.jpg" alt="Rust crushed-velvet throw pillows set at an angle along a grey three-seater sofa"></div>
+      <div class="ph" data-label="Rust set, two-seater"><img loading="lazy" src="images/pillows-3.jpg" alt="Three rust crushed-velvet throw pillows on a grey two-seater sofa"></div>
+      <div class="ph alt" data-label="Ivory damask, angled"><img loading="lazy" src="images/pillows-4.jpg" alt="Three ivory damask throw pillows set at an angle on a grey two-seater sofa"></div>
+      <div class="ph" data-label="Mosquito net, ruffle trim"><img loading="lazy" src="images/net-1.jpg" alt="White box mosquito net with a ruffled valance and tie-back openings, hung up to show the full drop"></div>
+      <div class="ph alt wide" data-label="Ivory damask, two-seater"><img loading="lazy" src="images/pillows-5.jpg" alt="Ivory damask throw pillows arranged across a grey two-seater sofa"></div>
     </div>
   </div>
 </section>
 
-<!-- ============ MEASURE YOUR WINDOW ============ -->
-<section id="measure" class="measure">
+<section class="voice">
   <div class="wrap">
-    <div class="center stack">
-      <p class="eyebrow">Before you order</p>
-      <h2>Measure your window in two minutes</h2>
-      <p class="lede">You don't need anyone to come round. Two numbers and a tape measure is all it takes — and we'll work out the rest.</p>
+    <blockquote>The right curtain can change the whole feel of a room.</blockquote>
+    <cite>Ruth Kiiru &middot; Soft Haven Interiors</cite>
+  </div>
+</section>
+
+<section id="fabrics">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Fabrics</p>
+        <h2>Any colour you love</h2>
+      </div>
+      <p class="lede">Curtain fabrics, sheers and lace. Open the collection, note a code, and send it to us.</p>
     </div>
-    <div class="measure-grid" style="margin-top:2.6rem">
-      <div class="diagram">
-        <svg viewBox="0 0 420 300" role="img" aria-label="Diagram of a window showing A as the width of the curtain rod and B as the drop from the rod to the hem">
-          <rect x="0" y="0" width="420" height="300" fill="none"></rect>
+    <div class="fab-row">
+      <div class="ph alt" data-label="SH-01"><img loading="lazy" src="images/fabrics/sh-01.jpg" alt="Curtain fabric SH-01"></div>
+      <div class="ph alt" data-label="SH-04"><img loading="lazy" src="images/fabrics/sh-04.jpg" alt="Curtain fabric SH-04"></div>
+      <div class="ph alt" data-label="SH-09"><img loading="lazy" src="images/fabrics/sh-09.jpg" alt="Sheer fabric SH-09"></div>
+      <div class="ph alt" data-label="SH-16"><img loading="lazy" src="images/fabrics/sh-16.jpg" alt="Curtain fabric SH-16"></div>
+      <div class="ph alt" data-label="SH-22"><img loading="lazy" src="images/fabrics/sh-22.jpg" alt="Curtain fabric SH-22"></div>
+      <div class="ph alt" data-label="SH-28"><img loading="lazy" src="images/fabrics/sh-28.jpg" alt="Curtain fabric SH-28"></div>
+    </div>
+    <div class="fab-open">
+      <button class="btn btn-solid" id="fabOpen" type="button">Browse all 33 fabrics</button>
+      <span class="fab-hint">Not sure? Send a photo of the room and we'll suggest a shade.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING + MEASURE YOUR WINDOW ============ -->
+<section id="pricing" class="price">
+  <div class="wrap price-grid">
+    <div>
+      <p class="eyebrow">Pricing</p>
+      <p class="price-tag">KSh 4,000</p>
+      <p class="price-what">Standard set &mdash; a 3 m curtain with a 3 m sheer.</p>
+      <ul class="ticks">
+        <li>Tailored to your window measurements</li>
+        <li>Quality fabric, modern eyelet heading</li>
+        <li>Your choice of colour from our range</li>
+      </ul>
+      <p class="fineprint">Wider windows, blackout fabric and multi-room orders are quoted on your measurements.</p>
+
+      <div class="diagram" id="measure">
+        <svg viewBox="0 0 420 270" role="img" aria-label="Diagram of a window showing A as the width of the curtain rod and B as the drop from the rod to the hem">
           <!-- wall -->
-          <rect x="70" y="55" width="280" height="200" rx="3" fill="var(--ground-2)" stroke="var(--line)"></rect>
+          <rect x="70" y="55" width="280" height="200" rx="3" fill="var(--ground)" stroke="var(--line)"></rect>
           <!-- window -->
-          <rect x="120" y="85" width="180" height="140" fill="var(--ground)" stroke="var(--sage)" stroke-width="2"></rect>
+          <rect x="120" y="85" width="180" height="140" fill="var(--surface)" stroke="var(--sage)" stroke-width="2"></rect>
           <line x1="210" y1="85" x2="210" y2="225" stroke="var(--sage)" stroke-width="2"></line>
           <!-- rod -->
           <line x1="85" y1="70" x2="335" y2="70" stroke="var(--brand)" stroke-width="5" stroke-linecap="round"></line>
           <circle cx="85" cy="70" r="7" fill="var(--brand)"></circle>
           <circle cx="335" cy="70" r="7" fill="var(--brand)"></circle>
           <!-- curtain panels -->
-          <path d="M95 74 q10 60 0 120 q-4 30 4 46 h32 q-8-16-4-46 q10-60 0-120 z" fill="var(--gold)" opacity=".85"></path>
-          <path d="M325 74 q-10 60 0 120 q4 30-4 46 h-32 q8-16 4-46 q-10-60 0-120 z" fill="var(--sage)" opacity=".85"></path>
+          <path d="M95 74 q10 60 0 120 q-4 30 4 46 h32 q-8-16-4-46 q10-60 0-120 z" fill="var(--brand-mid)" opacity=".85"></path>
+          <path d="M325 74 q-10 60 0 120 q4 30-4 46 h-32 q8-16 4-46 q-10-60 0-120 z" fill="var(--brand-mid)" opacity=".85"></path>
           <!-- A dimension -->
           <line x1="85" y1="42" x2="335" y2="42" stroke="var(--gold)" stroke-width="1.5"></line>
           <line x1="85" y1="35" x2="85" y2="49" stroke="var(--gold)" stroke-width="1.5"></line>
           <line x1="335" y1="35" x2="335" y2="49" stroke="var(--gold)" stroke-width="1.5"></line>
-          <text x="210" y="32" text-anchor="middle" font-size="15" font-weight="700" fill="var(--gold)" font-family="Georgia,serif">A — rod width</text>
+          <text x="210" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="var(--gold)">A — rod width</text>
           <!-- B dimension -->
           <line x1="378" y1="70" x2="378" y2="240" stroke="var(--gold)" stroke-width="1.5"></line>
           <line x1="371" y1="70" x2="385" y2="70" stroke="var(--gold)" stroke-width="1.5"></line>
           <line x1="371" y1="240" x2="385" y2="240" stroke="var(--gold)" stroke-width="1.5"></line>
-          <text x="368" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="var(--gold)" font-family="Georgia,serif" transform="rotate(90 368 160)">B — drop</text>
+          <text x="366" y="155" text-anchor="middle" font-size="14" font-weight="600" fill="var(--gold)" transform="rotate(90 366 155)">B — drop</text>
         </svg>
-        <ol class="steps-list">
-          <li><span><b>Measure A</b> — the full length of your curtain rod or track, end to end. Not the glass, the rod. If there's no rod yet, measure the window and add 15 cm each side.</span></li>
-          <li><span><b>Measure B</b> — from the rod down to where you want the curtain to stop. Just below the sill, or all the way to the floor.</span></li>
-          <li><span><b>Use centimetres</b> and round to the nearest one. Measure each window separately, even if they look identical.</span></li>
-        </ol>
+        <p><b>A</b> is the full length of the rod, end to end &mdash; not the glass. <b>B</b> is from the rod down to where the curtain should stop. Use centimetres.</p>
       </div>
+    </div>
 
-      <div class="calc">
-        <h3 style="font-size:1.15rem;margin-bottom:.3rem">What your window needs</h3>
-        <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:1.2rem">Enter your two numbers and send them straight to us.</p>
-        <div class="calc-row">
-          <div class="field">
-            <label for="mW">A — rod width (cm)</label>
-            <input type="number" id="mW" min="20" max="1200" step="1" value="150" inputmode="numeric">
-          </div>
-          <div class="field">
-            <label for="mD">B — drop (cm)</label>
-            <input type="number" id="mD" min="20" max="400" step="1" value="220" inputmode="numeric">
-          </div>
+    <div class="calc">
+      <h3>Get your price</h3>
+      <p>Two numbers and a tape measure. Nobody needs to come round.</p>
+      <div class="calc-row">
+        <div class="field">
+          <label for="mW">A — rod width (cm)</label>
+          <input type="number" id="mW" min="20" max="1200" step="1" value="150" inputmode="numeric">
         </div>
-        <div class="calc-row">
-          <div class="field">
-            <label for="mRoom">Room</label>
-            <select id="mRoom">
-              <option>Living room</option>
-              <option>Bedroom</option>
-              <option>Dining room</option>
-              <option>Kitchen</option>
-              <option>Office</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="mQty">How many windows</label>
-            <input type="number" id="mQty" min="1" max="40" step="1" value="1" inputmode="numeric">
-          </div>
+        <div class="field">
+          <label for="mD">B — drop (cm)</label>
+          <input type="number" id="mD" min="20" max="400" step="1" value="220" inputmode="numeric">
         </div>
-        <div class="calc-out" id="mOut"></div>
-        <a class="btn btn-wa" id="mSend" style="width:100%" href="#" target="_blank" rel="noopener">Send these measurements on WhatsApp</a>
-        <p class="calc-note">We cut curtains to about twice your rod width so they hang in full folds rather than pulled flat. Sheers are cut to the same width.</p>
       </div>
+      <div class="calc-row">
+        <div class="field">
+          <label for="mRoom">Room</label>
+          <select id="mRoom">
+            <option>Living room</option>
+            <option>Bedroom</option>
+            <option>Dining room</option>
+            <option>Kitchen</option>
+            <option>Office</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mQty">Windows</label>
+          <input type="number" id="mQty" min="1" max="40" step="1" value="1" inputmode="numeric">
+        </div>
+      </div>
+      <div class="calc-out" id="mOut"></div>
+      <a class="btn btn-wa" id="mSend" href="#" target="_blank" rel="noopener">Send measurements on WhatsApp</a>
     </div>
   </div>
 </section>
 
-<section id="pricing" class="price">
-  <div class="wrap">
-    <div class="center stack">
-      <p class="eyebrow">Pricing</p>
-      <h2>Straightforward, no surprises</h2>
-      <p class="lede">Our most popular order — a full standard window, curtain and sheer together.</p>
-    </div>
-    <div class="price-card">
-      <p style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-lift)">Standard set</p>
-      <p class="price-tag">KSh 4,000</p>
-      <p style="font-size:.9rem;color:var(--on-dark-soft)">3m curtain + 3m sheer</p>
-      <ul>
-        <li>Tailored to your window measurements</li>
-        <li>Quality fabric with excellent fall</li>
-        <li>Modern eyelet heading, clean stitching</li>
-        <li>Your choice of colour from our range</li>
-      </ul>
-      <a class="btn btn-wa" href="https://wa.me/254799282690?text=Hi%20Soft%20Haven%20Interiors%2C%20I%27d%20like%20the%20standard%20set%20(3m%20curtain%20%2B%203m%20sheer).%20My%20window%20measurements%20are%3A" target="_blank" rel="noopener">Order this set</a>
-    </div>
-    <p class="fineprint">Bigger windows, blackout fabric and multi-room orders are quoted individually. Send your measurements on WhatsApp for an exact price.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="center stack">
+<!-- ============ HOW IT WORKS + OUR PROMISE ============
+     PROMISE WORDING — Ruth must be happy to stand behind each of these.
+     Nothing here should promise more than she will do. -->
+<section class="dark">
+  <div class="wrap dark-grid">
+    <div>
       <p class="eyebrow">How it works</p>
-      <h2>From measurement to hanging</h2>
+      <h2>From tape measure to hanging</h2>
+      <ol class="rows">
+        <li><div><b>Send your measurements</b><span>Width and drop. A photo of the room helps.</span></div></li>
+        <li><div><b>Choose fabric and colour</b><span>We confirm the price before anything is cut.</span></div></li>
+        <li><div><b>We tailor your set</b><span>Cut, sewn and finished to size.</span></div></li>
+        <li><div><b>Delivered ready to hang</b><span>Eyelets slide straight onto your rod.</span></div></li>
+      </ol>
     </div>
-    <div class="steps">
-      <div class="step">
-        <h3>Send your measurements</h3>
-        <p>Message us the width and drop of your window — a photo of the room helps too.</p>
-      </div>
-      <div class="step">
-        <h3>Choose fabric &amp; colour</h3>
-        <p>We show you options that suit the room, and confirm the price before anything is cut.</p>
-      </div>
-      <div class="step">
-        <h3>We tailor your set</h3>
-        <p>Your curtains are cut, sewn and finished to size with proper eyelet headings.</p>
-      </div>
-      <div class="step">
-        <h3>Delivered ready to hang</h3>
-        <p>You receive a finished set that fits — no adjusting, no guesswork.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OUR PROMISE ============
-     DRAFT WORDING — Ruth must confirm she is happy to stand behind each of these
-     before the site goes live. Nothing here should promise more than she will do. -->
-<section class="promise">
-  <div class="wrap">
-    <div class="center stack">
+    <div>
       <p class="eyebrow">Our promise</p>
       <h2>What you can hold us to</h2>
-      <p class="lede">Custom work can't be returned to a shelf, so the risk usually sits with you. We'd rather it sat with us.</p>
-    </div>
-    <div class="promise-grid">
-      <div class="promise-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-        <h3>It will fit</h3>
-        <p>If your curtains don't fit the window you measured with us, we alter them at our cost. You don't pay twice for our mistake.</p>
-      </div>
-      <div class="promise-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-        <h3>The price won't move</h3>
-        <p>The price we quote after seeing your measurements is the price you pay. No extra charged once the fabric is cut.</p>
-      </div>
-      <div class="promise-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V7z"></path><path d="M9 12l2 2 4-4"></path></svg>
-        <h3>You see it before you commit</h3>
-        <p>We confirm the fabric, the colour and the finished size in writing on WhatsApp before a single cut is made.</p>
-      </div>
+      <ul class="rows plain">
+        <li><div><b>It will fit</b><span>If it doesn't fit the window you measured with us, we alter it at our cost.</span></div></li>
+        <li><div><b>The price won't move</b><span>The quote you get is the price you pay.</span></div></li>
+        <li><div><b>You see it before you commit</b><span>Fabric, colour and size confirmed on WhatsApp before a single cut.</span></div></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -862,113 +608,69 @@
      script at the bottom. Do not put invented reviews here. -->
 <section id="reviews" hidden>
   <div class="wrap">
-    <div class="center stack">
-      <p class="eyebrow">What clients say</p>
-      <h2>In their words</h2>
+    <div class="head">
+      <div>
+        <p class="eyebrow">What clients say</p>
+        <h2>In their words</h2>
+      </div>
     </div>
     <div class="quotes" id="quoteGrid"></div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" style="background:var(--ground-2)">
-  <div class="wrap">
-    <div class="center stack">
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div>
       <p class="eyebrow">Questions</p>
       <h2>Before you ask</h2>
     </div>
     <div class="faq-list">
       <details class="faq-item">
         <summary>How much do curtains cost?</summary>
-        <p>Our standard set — a 3 m curtain with a 3 m sheer — is KSh 4,000, which suits most windows up to about 150 cm wide. Anything wider, or blackout fabric, is quoted on your measurements. Send us your numbers and you'll have an exact price back, not a range.</p>
+        <p>Our standard set — a 3 m curtain with a 3 m sheer — is KSh 4,000, which suits most windows up to about 150 cm wide. Anything wider, or blackout fabric, is quoted on your measurements.</p>
       </details>
       <details class="faq-item">
         <summary>Do I need you to come and measure?</summary>
-        <p>No. Most of our clients measure their own windows using the guide on this page — two numbers, a tape measure, two minutes. It keeps your cost down and means we can start the same day you message us.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What if I measure wrongly?</summary>
-        <p>Send us a photo of the window along with your numbers. If something looks off against the photo we'll query it before cutting. That catch has saved plenty of orders.</p>
+        <p>No. Most clients measure their own windows using the guide above — the rod width and the drop. Send a photo of the window too, and we'll query anything that looks off before cutting.</p>
       </details>
       <details class="faq-item">
         <summary>Can I see the fabric before I decide?</summary>
-        <p>Yes — the full collection is on this page under <a href="#fabrics">Browse the fabric collection</a>. Each one has a code. Send us the code and we'll tell you what colours that fabric comes in.</p>
+        <p>Yes. The <a href="#fabrics">full collection</a> is on this page and each fabric has a code. Send us the code and we'll tell you what colours it comes in.</p>
       </details>
       <details class="faq-item">
         <summary>What is the difference between a curtain and a sheer?</summary>
-        <p>The curtain is the heavy outer layer that gives privacy at night and blocks light. The sheer is the light inner layer you leave closed during the day — it keeps the room bright but stops people seeing in. Most homes want both, which is why our standard set includes them together.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Do you fit the curtains for me?</summary>
-        <p>Your set arrives finished and ready to hang on an existing rod. Eyelet headings slide straight on, so most clients hang them themselves in a few minutes.</p>
+        <p>The curtain is the heavy outer layer that gives privacy at night and blocks light. The sheer is the light inner layer you leave closed during the day — the room stays bright, but people can't see in.</p>
       </details>
       <details class="faq-item">
         <summary>Where are you based, and do you deliver?</summary>
-        <p>We're in Nakuru. Message us on WhatsApp with where you are and we'll confirm delivery to you before you order.</p>
+        <p>We're in Nakuru. Message us on WhatsApp with where you are and we'll confirm delivery before you order.</p>
       </details>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="wrap contact-grid">
-    <div>
-      <div class="stack">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Let's make your home a haven</h2>
-        <p class="lede">Send us a message any day — we'll reply with options and a price.</p>
-      </div>
-      <ul class="contact-list">
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 3.5 17.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>
-          <span><b>WhatsApp / Call</b><a href="https://wa.me/254799282690" target="_blank" rel="noopener">0799 282 690</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"></path></svg>
-          <span><b>Facebook</b><a href="https://www.facebook.com/profile.php?id=61585793640233" target="_blank" rel="noopener">Soft Haven Interiors</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle></svg>
-          <span><b>Instagram</b><a href="https://www.instagram.com/interiorssofthaven/" target="_blank" rel="noopener">@interiorssofthaven</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-          <span><b>Where we are</b><span class="val">Nakuru, Kenya</span></span>
-        </li>
-      </ul>
-      <div class="socials">
-        <a class="soc" href="https://www.facebook.com/profile.php?id=61585793640233" target="_blank" rel="noopener" aria-label="Soft Haven Interiors on Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"></path></svg>
-        </a>
-        <a class="soc" href="https://www.instagram.com/interiorssofthaven/" target="_blank" rel="noopener" aria-label="Soft Haven Interiors on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle></svg>
-        </a>
-        <a class="soc" href="https://wa.me/254799282690" target="_blank" rel="noopener" aria-label="Soft Haven Interiors on WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5 1.9.8 2.6.9 3.5.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"></path><path d="M12 2A10 10 0 0 0 3.5 17.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>
-        </a>
-      </div>
-    </div>
-    <div class="cta-box">
-      <h3>Ready for a quote?</h3>
-      <p>Tap below, send your window width and drop, and we'll come back with fabric options and an exact price.</p>
+<section id="contact" class="contact rule">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Let's make your home <em>a haven.</em></h2>
+    <p class="lede">Send your window width and drop. We'll reply with fabric options and an exact price.</p>
+    <div class="contact-cta">
       <a class="btn btn-wa" href="https://wa.me/254799282690?text=Hi%20Soft%20Haven%20Interiors%2C%20I%27d%20like%20a%20quote.%20My%20window%20measurements%20are%3A" target="_blank" rel="noopener">Message us on WhatsApp</a>
       <a class="btn btn-ghost" href="tel:+254799282690">Call 0799 282 690</a>
     </div>
+    <p class="where">Nakuru, Kenya</p>
   </div>
 </section>
 
 <footer class="site-foot">
-  <div class="wrap">
-    <img class="foot-logo" src="images/logo.png" alt="Soft Haven Interiors — Your Home, Your Haven.">
-  <div class="foot">
-    <span>&copy; <span id="yr">2026</span> Soft Haven Interiors &middot; Nakuru, Kenya</span>
-    <span>Your Home, Your Haven. &middot; <a href="https://wa.me/254799282690" target="_blank" rel="noopener">0799 282 690</a></span>
+  <div class="wrap foot">
+    <span>&copy; <span id="yr">2026</span> Soft Haven Interiors &middot; Your Home, Your Haven.</span>
     <span class="foot-soc">
-      <a href="https://www.facebook.com/profile.php?id=61585793640233" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"></path></svg></a>
-      <a href="https://www.instagram.com/interiorssofthaven/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"></circle></svg></a>
-      <a href="https://wa.me/254799282690" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 3.5 17.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg></a>
+      <a href="https://www.facebook.com/profile.php?id=61585793640233" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/interiorssofthaven/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/254799282690" target="_blank" rel="noopener">WhatsApp</a>
     </span>
-  </div>
   </div>
 </footer>
 
@@ -1016,14 +718,17 @@
   // using the filenames in each src and they appear automatically.
   document.querySelectorAll('.ph img').forEach(function (img) {
     function fail() { img.style.display = 'none'; }
-    img.addEventListener('error', fail);
-    img.addEventListener('load', function () {
+    function done() {
       if (img.naturalWidth === 0) { fail(); return; }
       var panel = img.parentElement;
       panel.style.background = 'none';
       panel.dataset.label = '';
-    });
-    if (img.complete && img.naturalWidth === 0) fail();
+    }
+    img.addEventListener('error', fail);
+    img.addEventListener('load', done);
+    // An image that finished before this script ran never fires 'load' here.
+    // (A lazy image that has not started yet is complete with no currentSrc.)
+    if (img.complete && img.currentSrc) done();
   });
 
   /* ---------------- measure-up calculator ----------------

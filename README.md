@@ -38,6 +38,7 @@ The live site updates about a minute after the push.
 
 - `build.ps1` — regenerates `index.html` and `_page.html` from the source.
 - `package_site.ps1` — copies the live site into `docs/` and zips it.
+- `build_index.py` — the `index.html` step of `build.ps1` for machines without PowerShell; also copies it into `docs/`. Does not build `_page.html` or copy images.
 - `process_photos.ps1` — crops and resizes the gallery photos.
 - `process_fabrics.ps1` — turns the fabric shop photos into coded `sh-NN.jpg` files.
 - `make_logo.ps1` — cuts `logo.png` and `logo-mark.png` from the original.
