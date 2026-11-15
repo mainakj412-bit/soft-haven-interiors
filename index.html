@@ -135,7 +135,7 @@
          padding-top:1.5rem;border-top:1px solid var(--line)}
   .facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.1;
            color:var(--ink);font-variant-numeric:tabular-nums}
-  .facts span{font-size:.8rem;color:var(--ink-soft)}
+  .facts > div > span{display:block;font-size:.8rem;color:var(--ink-soft)}
   /* the hero photo sits in an arch — a window, not a rectangle */
   .hero-art{max-width:420px;width:100%;justify-self:end}
   .hero-art .ph{aspect-ratio:3/4.1;border-radius:999px 999px 6px 6px}
@@ -349,6 +349,40 @@
   body.is-locked{overflow:hidden}
 
 
+  /* ---------- motion ----------
+     Everything here is gated on html.js (set by the first script in <body>),
+     so with scripting off nothing is ever left invisible. Each effect runs
+     once; nothing loops. */
+  :root{interpolate-size:allow-keywords}
+  .btn{transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:translateY(0) scale(.98)}
+  .faq-item::details-content{block-size:0;overflow:hidden;
+    transition:block-size .32s ease,content-visibility .32s allow-discrete}
+  .faq-item[open]::details-content{block-size:auto}
+  .faq-item summary::after{transition:transform .25s ease}
+
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes unveil{from{opacity:0;clip-path:inset(0 50% 0 50%)}to{opacity:1;clip-path:inset(0)}}
+    @keyframes settle{from{transform:scale(1.12)}to{transform:none}}
+
+    /* hero: text rises in sequence, the arch opens like a drawn curtain */
+    .js .hero-grid > div:first-child > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+    .js .hero-grid > div:first-child > :nth-child(2){animation-delay:.08s}
+    .js .hero-grid > div:first-child > :nth-child(3){animation-delay:.18s}
+    .js .hero-grid > div:first-child > :nth-child(4){animation-delay:.28s}
+    .js .hero-grid > div:first-child > :nth-child(5){animation-delay:.4s}
+    .js .hero-art .ph{animation:unveil 1.2s cubic-bezier(.2,.7,.2,1) .15s both}
+    .js .hero-art .ph img{animation:settle 1.8s cubic-bezier(.2,.7,.2,1) .15s both}
+
+    /* scroll reveal: JS adds .rv to targets, then .in when they enter view */
+    .js .rv{opacity:0;transform:translateY(22px);
+            transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);
+            transition-delay:var(--d,0s)}
+    .js .rv.in{opacity:1;transform:none}
+  }
+
   /* ---------- floating whatsapp ---------- */
   .float{position:fixed;right:16px;bottom:16px;z-index:60;width:54px;height:54px;border-radius:50%;
          background:var(--wa);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
@@ -403,6 +437,7 @@
 }
 </script>
 
+<script>document.documentElement.className += ' js';</script>
 <a class="skip" href="#top">Skip to content</a>
 <header class="site-head">
   <nav class="nav">
@@ -435,7 +470,7 @@
       </div>
       <div class="facts">
         <div><b>KSh 4,000</b><span>standard curtain + sheer set</span></div>
-        <div><b>33</b><span>fabrics in stock</span></div>
+        <div><b data-count="33">33</b><span>fabrics in stock</span></div>
         <div><b>2 min</b><span>to measure your window</span></div>
       </div>
     </div>
@@ -450,7 +485,7 @@
     <div class="head">
       <div>
         <p class="eyebrow">Our work</p>
-        <h2>Made for homes around Nakuru</h2>
+        <h2>Made for homes across Kenya</h2>
       </div>
       <p class="lede">Every set here was tailored to a client's own window, in the fabric they picked.</p>
     </div>
@@ -461,6 +496,13 @@
       <div class="ph alt wide" data-label="Cushions &amp; sofa styling"><img src="images/work-4.jpg" alt="Cream textured cushions arranged along a beige sofa"></div>
       <div class="ph" data-label="Geometric set, second window"><img src="images/work-5.jpg" alt="The black and white geometric set on a second window in the same home"></div>
       <div class="ph alt" data-label="Brown &amp; cream, second window"><img src="images/work-6.jpg" alt="The brown and cream set on a second window in the same home"></div>
+      <div class="ph" data-label="Maroon ombr&eacute; set"><img loading="lazy" src="images/work-7.jpg" alt="Maroon and white ombr&eacute; eyelet curtains with a tree print, fitted over two windows in a peach room"></div>
+      <div class="ph alt" data-label="White with maroon hem"><img loading="lazy" src="images/work-8.jpg" alt="Full-length white eyelet curtains with a maroon hem band across a bedroom window"></div>
+      <div class="ph" data-label="White with maroon hem, two drops"><img loading="lazy" src="images/work-9.jpg" alt="White curtains with a maroon hem, cut to two different drops for a window beside a door"></div>
+      <div class="ph alt" data-label="Charcoal tree print"><img loading="lazy" src="images/work-10.jpg" alt="Charcoal and white eyelet curtains with a tree print, fitted wall to wall"></div>
+      <div class="ph wide" data-label="Charcoal tree print, full width"><img loading="lazy" src="images/work-11.jpg" alt="Charcoal and white tree-print curtains gathered across a wide window"></div>
+      <div class="ph alt" data-label="Tree print, detail"><img loading="lazy" src="images/work-12.jpg" alt="Close view of the silver tree print on the charcoal curtain fabric"></div>
+      <div class="ph" data-label="Eyelet heading"><img loading="lazy" src="images/work-13.jpg" alt="Eyelet heading and scroll border on a charcoal and white tree-print curtain"></div>
     </div>
 
     <div class="sub">
@@ -474,6 +516,9 @@
       <div class="ph alt" data-label="Ivory damask, angled"><img loading="lazy" src="images/pillows-4.jpg" alt="Three ivory damask throw pillows set at an angle on a grey two-seater sofa"></div>
       <div class="ph" data-label="Mosquito net, ruffle trim"><img loading="lazy" src="images/net-1.jpg" alt="White box mosquito net with a ruffled valance and tie-back openings, hung up to show the full drop"></div>
       <div class="ph alt wide" data-label="Ivory damask, two-seater"><img loading="lazy" src="images/pillows-5.jpg" alt="Ivory damask throw pillows arranged across a grey two-seater sofa"></div>
+      <div class="ph wide" data-label="Medallion print pillows"><img loading="lazy" src="images/pillows-6.jpg" alt="Stacked white pillows with a grey medallion print"></div>
+      <div class="ph alt" data-label="Medallion print, pair"><img loading="lazy" src="images/pillows-7.jpg" alt="Two white pillows with a grey medallion print, fresh from the workshop"></div>
+      <div class="ph" data-label="Medallion print, set"><img loading="lazy" src="images/pillows-8.jpg" alt="A set of white medallion-print pillows stacked in the workshop"></div>
     </div>
   </div>
 </section>
@@ -724,6 +769,55 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---------------- motion ----------------
+     Scroll reveal and the count-up figures. Skipped entirely for visitors who
+     ask for reduced motion, and on browsers without IntersectionObserver, in
+     which case nothing gets the .rv class and everything is simply visible. */
+  (function () {
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (calm || !('IntersectionObserver' in window)) return;
+
+    var targets = document.querySelectorAll(
+      '.head > *, .sub, .gallery .ph, .fab-row .ph, .fab-open, .voice .wrap > *, ' +
+      '.price-grid > *, .dark-grid > div, .faq-grid > *, .contact .wrap > *');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    targets.forEach(function (el) {
+      // Tiles in a grid follow one another; everything else arrives alone.
+      if (el.classList.contains('ph')) {
+        var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+        el.style.setProperty('--d', (i % 4) * 0.07 + 's');
+      }
+      el.classList.add('rv');
+      io.observe(el);
+    });
+
+    // Figures count up once, the first time they are seen.
+    var nums = document.querySelectorAll('[data-count]');
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        var el = e.target, end = +el.dataset.count, t0 = null, dur = 1100;
+        function step(t) {
+          if (t0 === null) t0 = t;
+          var k = Math.min((t - t0) / dur, 1);
+          k = 1 - Math.pow(1 - k, 3);
+          el.textContent = Math.round(end * k).toLocaleString('en-US');
+          if (k < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (n) { cio.observe(n); });
+  })();
 
   // Photos are optional. If an image file is missing the <img> is hidden and the
   // woven fabric panel behind it shows instead. Drop real photos into images/
