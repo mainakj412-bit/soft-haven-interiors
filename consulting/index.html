@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT: business name appears here, in .brand (x2), and in the footer -->
+<title>Fieldline Analytics | AI &amp; Data Consulting for Agribusiness</title>
+<meta name="description" content="Practical AI and data consulting for agribusinesses, outgrower schemes and field operations. KPI systems, dashboards, automation and AI tools built by someone who has run the operations.">
+<style>
+:root{
+  --bg:#f6f5ef; --surface:#ffffff; --ink:#14201b; --muted:#56635c; --line:#dfe2d8;
+  --brand:#14532d; --brand-ink:#ffffff; --accent:#b45309; --hero:#0f2a1f; --hero-ink:#eef3ea; --hero-muted:#a9bcae; --chip:#e8efe2;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0e1512; --surface:#16201b; --ink:#e9efe8; --muted:#9fb0a5; --line:#28352e;
+    --brand:#4ade80; --brand-ink:#06210f; --accent:#fbbf24; --hero:#0a1a13; --chip:#1d2a23; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0 0 .5em;font-weight:600;text-wrap:balance}
+h1{font-size:clamp(2.1rem,5.2vw,3.6rem)} h2{font-size:clamp(1.6rem,3.4vw,2.3rem)} h3{font-size:1.2rem}
+p{margin:0 0 1em} a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+.lead{color:var(--muted);max-width:62ch;font-size:1.08rem}
+.btn{display:inline-block;padding:13px 22px;border-radius:8px;font-weight:650;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn-primary{background:var(--brand);color:var(--brand-ink)}
+.btn-ghost{border-color:currentColor}
+.btn:hover{filter:brightness(1.1)} .btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:10;background:var(--hero);color:var(--hero-ink);border-bottom:1px solid #ffffff1a}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.brand{font-family:Georgia,serif;font-size:1.2rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.brand span{color:#86efac}
+.nav nav{display:flex;gap:22px;align-items:center;font-size:.95rem}
+.nav nav a{text-decoration:none;opacity:.85} .nav nav a:hover{opacity:1}
+.nav .btn{padding:8px 16px;background:#86efac;color:#06210f;opacity:1}
+@media(max-width:720px){.nav nav a:not(.btn){display:none}}
+
+.hero{background:var(--hero);color:var(--hero-ink);padding:76px 0 84px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero .eyebrow{color:#fbbf24}
+.hero p.lead{color:var(--hero-muted);font-size:1.15rem}
+.hero .btn-primary{background:#86efac;color:#06210f}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.panel{background:#ffffff0d;border:1px solid #ffffff24;border-radius:14px;padding:22px}
+.panel small{display:block;color:var(--hero-muted);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.kpi{background:#ffffff0f;border-radius:10px;padding:12px}
+.kpi b{display:block;font-size:1.5rem;font-family:Georgia,serif}
+.kpi span{font-size:.8rem;color:var(--hero-muted)}
+.bar{display:grid;grid-template-columns:74px 1fr 40px;gap:10px;align-items:center;font-size:.8rem;color:var(--hero-muted);margin:8px 0}
+.bar i{display:block;height:8px;border-radius:9px;background:#ffffff1a;overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:var(--w);background:#86efac;border-radius:9px}
+.bar.low i::after{background:#fbbf24}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+.grid{display:grid;gap:18px;margin-top:34px}
+.g2{grid-template-columns:1fr 1fr}
+@media(max-width:700px){.g2{grid-template-columns:1fr}}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card p{color:var(--muted);margin-bottom:.6em}
+.card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+.card li{margin:4px 0}
+.num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--chip);color:var(--brand);font-weight:700;margin-bottom:14px}
+.pains{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.pains li{border-left:3px solid var(--accent);background:var(--surface);padding:14px 18px;border-radius:0 10px 10px 0}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.alt .card{background:var(--bg)}
+
+.offer{background:var(--hero);color:var(--hero-ink);border-radius:18px;padding:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.offer p{color:var(--hero-muted)} .offer .eyebrow{color:#fbbf24}
+.offer ul{margin:0;padding:0;list-style:none}
+.offer li{padding:10px 0 10px 28px;border-bottom:1px solid #ffffff1f;position:relative}
+.offer li::before{content:"✓";position:absolute;left:0;color:#86efac;font-weight:700}
+.offer .btn-primary{background:#86efac;color:#06210f}
+@media(max-width:800px){.offer{grid-template-columns:1fr;padding:28px}}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips span{background:var(--chip);border-radius:99px;padding:6px 14px;font-size:.88rem}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:650;font-size:1.05rem}
+details p{color:var(--muted);margin:10px 0 0;max-width:70ch}
+
+form{display:grid;gap:14px}
+label{font-size:.9rem;font-weight:600;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:110px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.note{font-size:.85rem;color:var(--muted)}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Fieldline<span>.</span> Analytics</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AI &amp; data consulting for agribusiness</div>
+      <h1>Turn field records into decisions you can act on this season.</h1>
+      <p class="lead">We help agribusinesses, outgrower schemes and farm operations build the KPI systems, dashboards and AI tools that show what is happening across every site, and what to do about it.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">Book a free 30-minute call</a>
+        <a class="btn btn-ghost" href="#services">See services</a>
+      </div>
+    </div>
+    <div class="panel" aria-label="Sample dashboard, illustrative figures only">
+      <small>Sample dashboard · illustrative figures</small>
+      <div class="kpis">
+        <div class="kpi"><b>1,240</b><span>Acres contracted</span></div>
+        <div class="kpi"><b>87%</b><span>Of season target</span></div>
+        <div class="kpi"><b>3,410</b><span>Active farmers</span></div>
+        <div class="kpi"><b>6 days</b><span>Avg. visit interval</span></div>
+      </div>
+      <div class="bar"><span>Site A</span><i style="--w:92%"></i><span>92%</span></div>
+      <div class="bar"><span>Site B</span><i style="--w:81%"></i><span>81%</span></div>
+      <div class="bar low"><span>Site C</span><i style="--w:58%"></i><span>58%</span></div>
+      <div class="bar"><span>Site D</span><i style="--w:88%"></i><span>88%</span></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>Most operations have plenty of data and very little visibility.</h2>
+    <p class="lead">If any of these sound familiar, the fix is usually simpler and cheaper than a new software platform.</p>
+    <ul class="pains">
+      <li>Records live in notebooks, WhatsApp groups and a dozen spreadsheets that never agree.</li>
+      <li>Monthly reports take days to compile and arrive too late to change anything.</li>
+      <li>Nobody can say with confidence how many acres are planted or what yield to expect.</li>
+      <li>Field officers collect data, but it rarely comes back to them as guidance.</li>
+      <li>Input use and cost per kilogram are estimated, not measured.</li>
+      <li>You hear a lot about AI but cannot see where it fits in your operation.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <h2>Four ways we work with you</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Data audit &amp; KPI design</h3>
+        <p>A clear picture of the data you have, the data you need, and the handful of numbers that should run the business.</p>
+        <ul><li>Review of current records and reporting</li><li>KPI framework for acreage, production, inputs and people</li><li>Prioritised 90-day roadmap</li></ul>
+      </div>
+      <div class="card">
+        <h3>Dashboards &amp; reporting</h3>
+        <p>One trusted view for management, site leads and partners, updated automatically instead of rebuilt each month.</p>
+        <ul><li>Management and site-level dashboards</li><li>Automated weekly and monthly reports</li><li>Built on tools you already pay for where possible</li></ul>
+      </div>
+      <div class="card">
+        <h3>Field data systems</h3>
+        <p>Mobile data collection that field teams will actually use, with clean data flowing straight to head office.</p>
+        <ul><li>Farmer registration and contracting records</li><li>Visit, nursery and harvest tracking</li><li>Offline-capable forms and data quality checks</li></ul>
+      </div>
+      <div class="card">
+        <h3>AI &amp; automation</h3>
+        <p>Practical uses of AI where they save real hours: no hype, no experiments at your expense.</p>
+        <ul><li>AI assistants for reports, SOPs and training material</li><li>Workflow automation between your existing tools</li><li>Team training on using AI safely and well</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Small steps, each one useful on its own</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">1</div><h3>Diagnose</h3><p>We map your decisions, your data and the gaps between them. You get a written assessment whether or not we continue.</p></div>
+      <div class="card"><div class="num">2</div><h3>Build</h3><p>We deliver one working piece at a time, such as a dashboard, a form or an automation, tested with the people who will use it.</p></div>
+      <div class="card"><div class="num">3</div><h3>Hand over</h3><p>Your team is trained to run and adapt the system. Documentation is yours. Ongoing support is optional, not a lock-in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="offer">
+      <div>
+        <div class="eyebrow">Best place to start</div>
+        <h2>The Data Health Check</h2>
+        <p>A fixed-scope, fixed-price review of how your operation collects, stores and uses data. It ends with a short report and a roadmap you can execute with us, with someone else, or on your own.</p>
+        <a class="btn btn-primary" href="#contact">Ask about the Health Check</a>
+      </div>
+      <ul>
+        <li>Review of records, tools and reports</li>
+        <li>Interviews with management and field staff</li>
+        <li>Recommended KPI set for your operation</li>
+        <li>Quick wins you can apply immediately</li>
+        <li>90-day roadmap with cost estimates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="alt">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>Built by an operator, not just an analyst.</h2>
+      <p class="lead">Fieldline Analytics is led by an agronomist and seed systems specialist with hands-on experience managing multi-site crop production, nursery operations and farmer support programmes.</p>
+      <p class="lead">That means we understand contracting models, field teams and seasonal pressure before the first meeting, and we design systems around how the work is really done.</p>
+    </div>
+    <div>
+      <h3>Who we work with</h3>
+      <div class="chips">
+        <span>Agribusinesses &amp; processors</span><span>Outgrower schemes</span><span>Seed companies &amp; nurseries</span><span>Cooperatives</span><span>NGOs &amp; development projects</span><span>Commercial farms</span>
+      </div>
+      <h3 style="margin-top:28px">What we care about</h3>
+      <div class="chips">
+        <span>Decisions before dashboards</span><span>Simple tools first</span><span>Your data stays yours</span><span>Skills transfer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2>Common questions</h2>
+    <details><summary>Do we need to buy new software?</summary><p>Usually not at the start. Many improvements come from structuring the spreadsheets and tools you already have. We recommend new software only when it clearly pays for itself.</p></details>
+    <details><summary>Our data is messy. Is that a problem?</summary><p>No, that is the normal starting point. Cleaning and structuring existing records is part of the work, and the Health Check tells you how much effort it will take.</p></details>
+    <details><summary>How is pricing structured?</summary><p>The Health Check is fixed-price. Build projects are quoted per deliverable so you know the cost before work starts. Ongoing support is a monthly retainer.</p></details>
+    <details><summary>Do you only work in agriculture?</summary><p>Agriculture and agribusiness are our focus because that is where our operating experience is. We take on other field-based operations where the same methods apply.</p></details>
+    <details><summary>Who owns the data and the systems?</summary><p>You do. Everything is built in your accounts, documented, and handed over to your team.</p></details>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Tell us what you are trying to see more clearly.</h2>
+      <p class="lead">The first 30-minute call is free. You will leave with at least one concrete suggestion, whether or not we work together.</p>
+      <!-- EDIT: replace with your real email and WhatsApp number (also in the script below) -->
+      <p><strong>Email:</strong> <a id="emailLink" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a><br>
+      <strong>WhatsApp:</strong> <a id="waLink" href="https://wa.me/254700000000">+254 700 000 000</a></p>
+    </div>
+    <form id="enquiry">
+      <div class="row">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Organisation<input name="org" autocomplete="organization"></label>
+      </div>
+      <label>I am interested in
+        <select name="topic">
+          <option>Data Health Check</option><option>Dashboards &amp; reporting</option><option>Field data systems</option><option>AI &amp; automation</option><option>Not sure yet</option>
+        </select>
+      </label>
+      <label>What would you like to solve?<textarea name="msg" required></textarea></label>
+      <div class="cta" style="margin-top:0">
+        <button class="btn btn-primary" type="submit" data-via="email">Send by email</button>
+        <button class="btn btn-ghost" type="submit" data-via="wa">Send by WhatsApp</button>
+      </div>
+      <p class="note">This opens your email or WhatsApp app with the message filled in. Nothing is stored on this site.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Fieldline Analytics. AI &amp; data consulting.</span>
+    <span>Nakuru, Kenya · Working across East Africa</span>
+  </div>
+</footer>
+
+<script>
+// EDIT: your contact details
+var EMAIL = "hello@yourdomain.com";
+var WHATSAPP = "254700000000"; // country code + number, digits only
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.getElementById("enquiry").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = e.target, via = (e.submitter && e.submitter.dataset.via) || "email";
+  var body = "Name: " + f.name.value + "\nOrganisation: " + f.org.value +
+             "\nInterested in: " + f.topic.value + "\n\n" + f.msg.value;
+  var url = via === "wa"
+    ? "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(body)
+    : "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Enquiry: " + f.topic.value) +
+      "&body=" + encodeURIComponent(body);
+  window.open(url, "_blank", "noopener");
+});
+</script>
+</body>
+</html>
